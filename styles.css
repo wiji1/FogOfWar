@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    overflow: hidden;
+}
+
+#upload-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px dashed #666;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    padding: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+
+#sidebar.visible {
+    transform: translateX(0);
+}
+
+#sidebar-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1001;
+    padding: 10px 15px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: none;
+}
+
+#sidebar-toggle:hover {
+    background: #555;
+}
+
+#sidebar-toggle.visible {
+    display: block;
+}
+
+#sidebar h2 {
+    margin-bottom: 20px;
+    color: white;
+    font-size: 18px;
+}
+
+#file-input-multiple {
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#file-input-multiple:hover {
+    background: #555;
+}
+
+#image-list {
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+#reset-all-btn {
+    margin-top: 20px;
+    padding: 10px;
+    background: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+}
+
+#reset-all-btn:hover {
+    background: #b71c1c;
+}
+
+.image-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.image-item:hover {
+    background: #444;
+}
+
+.image-item.active {
+    background: #555;
+    border: 2px solid #666;
+}
+
+.image-thumbnail {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+.image-info {
+    flex: 1;
+    color: white;
+}
+
+.image-name {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.image-status {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.image-reset-btn {
+    margin-left: 10px;
+    padding: 5px 8px;
+    background: #f44336;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    min-width: 50px;
+}
+
+.image-reset-btn:hover {
+    background: #d32f2f;
+}
+
+#upload-container.hidden {
+    display: none;
+}
+
+#file-input {
+    margin: 20px 0;
+    padding: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#file-input:hover {
+    background: #555;
+}
+
+#canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    cursor: crosshair;
+}
+
+#map-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#fog-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+
+#zoom-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#zoom-controls.visible {
+    display: flex;
+}
+
+.zoom-btn {
+    width: 50px;
+    height: 50px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zoom-btn:hover {
+    background: #555;
+}
+
+#zoom-level {
+    position: fixed;
+    bottom: 20px;
+    right: 90px;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    display: none;
+}
+
+#zoom-level.visible {
+    display: block;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fog of War Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="upload-container">
+        <h1>Fog of War Simulator</h1>
+        <p>Upload images to use as your maps</p>
+        <input type="file" id="file-input" accept="image/*" multiple />
+        <p style="margin-top: 10px; font-size: 12px; color: #ccc;">
+            After uploading, click and drag your mouse to reveal the map through the fog
+        </p>
+    </div>
+    
+    <button id="sidebar-toggle">☰</button>
+    
+    <div id="sidebar">
+        <h2>Map Images</h2>
+        <input type="file" id="file-input-multiple" accept="image/*" multiple placeholder="Add more images..." />
+        <div id="image-list"></div>
+        <button id="reset-all-btn">Reset All Images</button>
+    </div>
+    
+    <div id="canvas-container">
+        <canvas id="map-canvas"></canvas>
+        <canvas id="fog-canvas"></canvas>
+    </div>
+    
+    
+    <div id="zoom-controls">
+        <button class="zoom-btn" id="zoom-in">+</button>
+        <button class="zoom-btn" id="zoom-out">-</button>
+    </div>
+    
+    <div id="zoom-level">100%</div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
