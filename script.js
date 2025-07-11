@@ -28,6 +28,9 @@ let panY = 0;
 let isDragging = false;
 let lastMouseX = 0;
 let lastMouseY = 0;
+let isPanning = false;
+let panStartX = 0;
+let panStartY = 0;
 let baseFogCanvas = null;
 let baseFogCtx = null;
 let imageBaseX = 0;
@@ -418,7 +421,7 @@ fileInputMultiple.addEventListener('change', function(e) {
 canvasContainer.addEventListener('mousedown', function(e) {
     if (!imageLoaded) return;
     
-    if (e.button === 2 || e.ctrlKey) {
+    if (e.button === 2 || e.ctrlKey || e.shiftKey) {
         isDragging = true;
         lastMouseX = e.clientX;
         lastMouseY = e.clientY;
