@@ -12,6 +12,8 @@ const zoomInBtn = document.getElementById('zoom-in');
 const zoomOutBtn = document.getElementById('zoom-out');
 const zoomLevelDisplay = document.getElementById('zoom-level');
 const resetAllBtn = document.getElementById('reset-all-btn');
+const brushSizeSlider = document.getElementById('brush-size-slider');
+const brushSizeValue = document.getElementById('brush-size-value');
 
 const mapCtx = mapCanvas.getContext('2d');
 const fogCtx = fogCanvas.getContext('2d');
@@ -477,6 +479,11 @@ canvasContainer.addEventListener('contextmenu', function(e) {
     e.preventDefault();
 });
 
+function updateBrushSize() {
+    baseRevealRadius = parseInt(brushSizeSlider.value);
+    brushSizeValue.textContent = baseRevealRadius + 'px';
+}
+
 function revealFog(e) {
     const rect = canvasContainer.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -501,6 +508,8 @@ sidebarToggle.addEventListener('click', function() {
 });
 
 resetAllBtn.addEventListener('click', resetAllImages);
+
+brushSizeSlider.addEventListener('input', updateBrushSize);
 
 async function initializeApp() {
     setupCanvas();

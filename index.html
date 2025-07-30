@@ -21,6 +21,15 @@
     <div id="sidebar">
         <h2>Map Images</h2>
         <input type="file" id="file-input-multiple" accept="image/*" multiple placeholder="Add more images..." />
+        
+        <div id="brush-size-control">
+            <h3>Brush Size</h3>
+            <div id="brush-size-slider-container">
+                <input type="range" id="brush-size-slider" min="10" max="200" value="100">
+                <div id="brush-size-value">100px</div>
+            </div>
+        </div>
+        
         <div id="image-list"></div>
         <button id="reset-all-btn">Reset All Images</button>
     </div>
